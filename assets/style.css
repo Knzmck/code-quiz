@@ -1,0 +1,54 @@
+h1 {
+    padding-top: 50px;
+    display: block;
+    text-align: center;
+    margin: auto;
+}
+button {
+    background-color: green;
+    height: 100px;
+    width: 100px;
+    display: block;
+    justify-content: center;
+    margin: auto;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+p {
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 20px;
+}
+
+body {
+    background-color: lightblue;
+}
+
+
+
+/*Extra small devices (smartphones, <600px)*/  
+
+@media only screen and (max-width: 600px) {…}  
+
+
+/*Small devices (large smartphones and portrait tablets >= 600px)*/  
+
+@media only screen and (min-width: 600px) {…}  
+
+
+/*Medium devices (landscape tablets >= 768px)*/  
+
+@media only screen and (min-width: 768px) {…}  
+
+
+/*Large devices (laptops and desktops, >=600px)*/  
+
+@media only screen and (min-width: 992px) {…} 
+
+
+/*Extra Large devices (laptops and desktops <600px)*/  
+
+@media only screen and (min-width: 1200px) {…}
