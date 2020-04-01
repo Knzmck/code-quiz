@@ -1,24 +1,37 @@
 var startButton = document.getElementById("startbtn");
-//div containers
-// var homePage = document.getElementById("homepage");
-// var questionContainer = document.getElementById("qcontainer");
+var questionEl = document.getElementById('question-text');
+var answerEl = document.getElementById("answer-button");
+var homePage = document.getElementById("homepage");
+var questionContainer = document.getElementById("qcontainer");
 
 var randomQuestions
-var currentQuestion 
+var currentQuestionList 
 
 startButton.addEventListener('click', function(startGame){
-
-    window.location.pathname = './questionpage.html'
-    randomQuestions
+    //hide homepage
+    homePage.classList.add('hide')
+    //show question page
+    questionContainer.classList.remove('hide')
+    randomQuestions = questions.sort(() => Math.random() - .5)
+    currentQuestion = 0
     setQuestion()
 });
 console.log(startButton);
 
-const questions = [
+
+function setQuestion() {
+    displayQuestion(randomQuestions[currentQuestionList])
+}
+
+function displayQuestion(question) {
+    questionEl.innerHTML = question.question
+}
+
+var questions = [
     {
-        question: 'This is a question',
+        question: 'This is a question654645',
         answers: [
-            { option: 'a', correct: true },
+            {option: 'a', correct: true },
             {option: 'b', correct: false }
 
         ]
