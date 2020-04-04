@@ -7,10 +7,12 @@ var answerBtnEl3 = document.getElementById("answer-button3");
 var answerBtnEl4 = document.getElementById("answer-button4");
 var homePage = document.getElementById("homepage");
 var questionContainer = document.getElementById("qcontainer");
+var timeScoreContainer = document.getElementById("time-score-container")
 var correctText = document.getElementById("correct");
 var incorrectText = document.getElementById("incorrect");
 var correct = 0;
 var incorrect =0;
+var time = document.getElementById("time");
 
 let randomQuestions
 var currentQuestionIndex = 0
@@ -25,21 +27,21 @@ answerBtnEl4.addEventListener('click',selectAnswer)
 function startGame() {
     //hides hompage
     homePage.classList.add('hide')
-    //selects a random question
-    // randomQuestions = questions.sort(() => Math.random() - 1)
-    //choses first question in array (0)
-    // currentQuestionIndex = 1
     //shows question container
     questionContainer.classList.remove('hide')
     //sets question 
     setQuestion()
+    var gameTime = 60 * 1,
+        display = document.querySelector('#time');
+        startTimer(gameTime, display);
+
+
+    // selects random question *** need to add ***
 
 }
 
 //function to display question
 function setQuestion() {
-    //resets old question 
-    // resetFunction()
     //shows new question
     displayQuestion()
     
@@ -60,17 +62,9 @@ function displayQuestion() {
     
     
 }
-//trying to reset after answer selected??
-// function resetFunction() {
-//     nextButton.classList.add('hide')
-//     while (answerBtnEl.firstChild) {
-//         answerButtonsElement.removeChild (answerBtnEl.firstChild)
-//     }
-    
-// }
 
 function selectAnswer(event) {
-    if (currentQuestionIndex < questions.length-1) {
+    if (currentQuestionIndex < questions.length) {
 
     if (event.target.innerText == questions[currentQuestionIndex].correct) {
         correct++
@@ -79,7 +73,7 @@ function selectAnswer(event) {
         displayQuestion()
        
     }
-    else {
+    else{
         incorrect++
         incorrectText.innerText = incorrect
         currentQuestionIndex++
@@ -95,6 +89,28 @@ function selectAnswer(event) {
 
 }
 
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+// window.onload = function () {
+//     var fiveMinutes = 60 * 5,
+//         display = document.querySelector('#time');
+//     startTimer(fiveMinutes, display);
+// };
 
 //question array
 
@@ -109,9 +125,36 @@ const questions = [
         question: 'This is a question65?',
         answers: ['e','f', 'g', 'h'],
         correct: 'e'
-    }
+    },
+    {
+        question: 'This is a question644445?',
+        answers: [ 'a','b','c','d'],
+        correct: 'a'
+    },
+    {
+        question: 'This is a question99999?',
+        answers: [ 'a','b','c','d'],
+        correct: 'a'
+    },
+    {
+        question: 'This is a question6566666?',
+        answers: [ 'a','b','c','d'],
+        correct: 'a'
+    },
+    {
+        question: 'This is a question65777775?',
+        answers: [ 'a','b','c','d'],
+        correct: 'a'
+    },
+    {
+        question: 'This is a questio88888?',
+        answers: [ 'a','b','c','d'],
+        correct: 'a'
+    },
+    {
+        question: 'This is a question6101010145?',
+        answers: [ 'a','b','c','d'],
+        correct: 'a'
+    },
 
 ]
-
-console.log(questions)
-
