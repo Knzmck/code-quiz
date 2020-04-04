@@ -8,21 +8,23 @@ var answerBtnEl4 = document.getElementById("answer-button4");
 var homePage = document.getElementById("homepage");
 var questionContainer = document.getElementById("qcontainer");
 var timeScoreContainer = document.getElementById("time-score-container")
+var gameOverPage = document.getElementById("game-over")
 var correctText = document.getElementById("correct");
 var incorrectText = document.getElementById("incorrect");
 var correct = 0;
-var incorrect =0;
+var incorrect = 0;
 var time = document.getElementById("time");
+
 
 let randomQuestions
 var currentQuestionIndex = 0
 
 
 startButton.addEventListener('click', startGame)
-answerBtnEl1.addEventListener('click',selectAnswer)
-answerBtnEl2.addEventListener('click',selectAnswer)
-answerBtnEl3.addEventListener('click',selectAnswer)
-answerBtnEl4.addEventListener('click',selectAnswer)
+answerBtnEl1.addEventListener('click', selectAnswer)
+answerBtnEl2.addEventListener('click', selectAnswer)
+answerBtnEl3.addEventListener('click', selectAnswer)
+answerBtnEl4.addEventListener('click', selectAnswer)
 
 function startGame() {
     //hides hompage
@@ -31,9 +33,9 @@ function startGame() {
     questionContainer.classList.remove('hide')
     //sets question 
     setQuestion()
-    var gameTime = 60 * 1,
+    
         display = document.querySelector('#time');
-        startTimer(gameTime, display);
+    startTimer(gameTime, display);
 
 
     // selects random question *** need to add ***
@@ -44,8 +46,8 @@ function startGame() {
 function setQuestion() {
     //shows new question
     displayQuestion()
-    
-    
+
+
 }
 
 function displayQuestion() {
@@ -53,41 +55,45 @@ function displayQuestion() {
     questionEl.innerText = questions[currentQuestionIndex].question
     console.log(currentQuestionIndex)
     //links respective answers to question buttons
-        answerBtnEl1.innerText = questions[currentQuestionIndex].answers[0]
-        answerBtnEl2.innerText = questions[currentQuestionIndex].answers[1]
-        answerBtnEl3.innerText = questions[currentQuestionIndex].answers[2]
-        answerBtnEl4.innerText = questions[currentQuestionIndex].answers[3]
+    answerBtnEl1.innerText = questions[currentQuestionIndex].answers[0]
+    answerBtnEl2.innerText = questions[currentQuestionIndex].answers[1]
+    answerBtnEl3.innerText = questions[currentQuestionIndex].answers[2]
+    answerBtnEl4.innerText = questions[currentQuestionIndex].answers[3]
 
-        // button.addEventListener('click', selectAnswer)
-    
-    
+    // button.addEventListener('click', selectAnswer)
+
+
 }
 
 function selectAnswer(event) {
     if (currentQuestionIndex < questions.length) {
 
-    if (event.target.innerText == questions[currentQuestionIndex].correct) {
-        correct++
-        correctText.innerText = correct
-        currentQuestionIndex++
-        displayQuestion()
-       
-    }
-    else{
-        incorrect++
-        incorrectText.innerText = incorrect
-        currentQuestionIndex++
-        displayQuestion()
+        if (event.target.innerText == questions[currentQuestionIndex].correct) {
+            correct++
+            correctText.innerText = correct
+            currentQuestionIndex++
+            displayQuestion()
+            addTime()
+        }
+        else {
+            incorrect++
+            incorrectText.innerText = incorrect
+            currentQuestionIndex++
+            displayQuestion()
+            subtractTime()
+
+        }
+        console.log(event.target.innerText)
+    } else {
+
+        console.log("gameOver")
 
     }
-    console.log(event.target.innerText)
-} else {
-    
-    console.log("gameOver")
 
 }
 
-}
+// total time of game variable
+var gameTime = 60 * 1;
 
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
@@ -101,60 +107,46 @@ function startTimer(duration, display) {
         display.textContent = minutes + ":" + seconds;
 
         if (--timer < 0) {
-            timer = duration;
+            timeScoreContainer.classList.add('hide')
+            questionContainer.classList.add('hide')
+            gameOverPage.classList.remove('hide')
         }
     }, 1000);
 }
-
-// window.onload = function () {
-//     var fiveMinutes = 60 * 5,
-//         display = document.querySelector('#time');
-//     startTimer(fiveMinutes, display);
-// };
 
 //question array
 
 const questions = [
     {
-        question: 'This is a question654645?',
-        answers: [ 'a','b','c','d'],
-        correct: 'a'
+        question: 'What does CSS stand for?',
+        answers: ['Creating Style Sheets', 'Cascading Style Sheets', 'Compounding Style Syntax', 'Calculating Sign Syntax'],
+        correct: 'Cascading Style Sheets'
     },
 
     {
-        question: 'This is a question65?',
-        answers: ['e','f', 'g', 'h'],
-        correct: 'e'
+        question: 'What type of tag would you use to make the most important heading on an HTML page?',
+        answers: ['<h6>', '<h5>', '<h1>', '<h23>'],
+        correct: '<h1>'
     },
     {
-        question: 'This is a question644445?',
-        answers: [ 'a','b','c','d'],
-        correct: 'a'
+        question: 'What is a major advantage to using bootstrap?',
+        answers: ['Your boots will stay on', 'It improves responsiveness for Javascript', 'Bootstrap comes with an easy-to-use grid system', 'Nothing, do not use!'],
+        correct: 'Bootstrap comes with an easy-to-use grid system'
     },
     {
-        question: 'This is a question99999?',
-        answers: [ 'a','b','c','d'],
-        correct: 'a'
+        question: 'If a CSS element is defined multiple times, what will happen?',
+        answers: ['Nothing', 'The element will default to the styling most towards the bottom of the page', 'The element will default to the styling most towards the top of the page', 'The page will take on multiple styling elements'],
+        correct: 'The element will default to the styling most towards the bottom of the page'
     },
     {
-        question: 'This is a question6566666?',
-        answers: [ 'a','b','c','d'],
-        correct: 'a'
+        question: 'What does DOM stand for?',
+        answers: ['Desktop Object Model', 'Document Oracle Modem', 'Desktop Object Mod', 'Document Object Model'],
+        correct: 'Document Object Model'
     },
     {
-        question: 'This is a question65777775?',
-        answers: [ 'a','b','c','d'],
-        correct: 'a'
-    },
-    {
-        question: 'This is a questio88888?',
-        answers: [ 'a','b','c','d'],
-        correct: 'a'
-    },
-    {
-        question: 'This is a question6101010145?',
-        answers: [ 'a','b','c','d'],
-        correct: 'a'
-    },
+        question: 'Which number will call on the first object in an Array?',
+        answers: ['-1', '0', '1', 'Arrays do not hold objects'],
+        correct: '0'
+    }
 
 ]
