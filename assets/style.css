@@ -20,7 +20,7 @@ p {
     padding-top: 50px;
     padding-bottom: 50px;
     font-size: 20px;
-    background-color: white;
+    background-color: lightblue;
 }
 
 body {
@@ -28,7 +28,7 @@ body {
 }
 
 .question {
-    background-color: white;
+    background-color: lightblue;
     height: 45%;
     width: 75%;
     align-content: center;
@@ -49,7 +49,7 @@ body {
 }
 
 text {
-    font-size: 30px;
+    font-size: 20px;
 }
 
 /*Extra small devices (smartphones, <600px)*/  

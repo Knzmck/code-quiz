@@ -27,14 +27,11 @@ answerBtnEl3.addEventListener('click', selectAnswer)
 answerBtnEl4.addEventListener('click', selectAnswer)
 
 function startGame() {
-    //hides hompage
     homePage.classList.add('hide')
-    //shows question container
     questionContainer.classList.remove('hide')
-    //sets question 
     setQuestion()
     
-        display = document.querySelector('#time');
+    display = document.getElementById("time");
     startTimer(gameTime, display);
 
 
@@ -46,8 +43,6 @@ function startGame() {
 function setQuestion() {
     //shows new question
     displayQuestion()
-
-
 }
 
 function displayQuestion() {
@@ -60,8 +55,6 @@ function displayQuestion() {
     answerBtnEl3.innerText = questions[currentQuestionIndex].answers[2]
     answerBtnEl4.innerText = questions[currentQuestionIndex].answers[3]
 
-    // button.addEventListener('click', selectAnswer)
-
 
 }
 
@@ -73,21 +66,20 @@ function selectAnswer(event) {
             correctText.innerText = correct
             currentQuestionIndex++
             displayQuestion()
-            addTime()
+            // addTime()
         }
         else {
             incorrect++
             incorrectText.innerText = incorrect
             currentQuestionIndex++
             displayQuestion()
-            subtractTime()
+            // subtractTime()
 
         }
         console.log(event.target.innerText)
     } else {
-
-        console.log("gameOver")
-
+        questionContainer.classList.add('hide')
+        gameOverPage.classList.remove('hide')
     }
 
 }
@@ -107,11 +99,11 @@ function startTimer(duration, display) {
         display.textContent = minutes + ":" + seconds;
 
         if (--timer < 0) {
-            timeScoreContainer.classList.add('hide')
             questionContainer.classList.add('hide')
             gameOverPage.classList.remove('hide')
         }
     }, 1000);
+    console.log(startTimer)
 }
 
 //question array
@@ -150,3 +142,29 @@ const questions = [
     }
 
 ]
+
+
+// saving score 
+// var user = {
+//     initials: initials.value.trim(),
+//     correct: correct.value.trim(),
+//     incorrect: incorrect.value.trim(),
+//   };
+
+// var submitBtn = getElementById("submit-button")
+// var initials = getElementById("initials")
+// submitBtn.addEventListener ("click", addScore)
+// function addScore(type, message) {
+//     if (initials === "") {
+//         alert("error", "You must enter your initials to save your score.")
+//     }
+//     else {
+//         var scoreSheet = getElementById("new-scores")
+//         scoreSheet.textContent = message;
+//     scoreSheet.setAttribute("class", type);
+
+//     }
+
+// }
+
+

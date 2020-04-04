@@ -55,25 +55,7 @@
             </div>
         </div>
 
-
-
-    </div>
-
-    <!-- Game Over Page -->
-    <div class="hide" id="game-over">
-        <h1>
-            Game Over!
-        </h1>
-
-        <body>
-            <h3>Your Score<div class="user-score" id="user-score"> </div>
-            </h3>
-            <h4>Save your score with your initials here:</h4>
-            <input id="initials"> <input type="submit" value="Submit">
-            <text id="all-scores"> </text>
-    </div>
-
-    <!-- score and timer -->
+        <!-- score and timer -->
     <div id="time-score-container" class="time-score-container">
         <div class="row">
             <div>
@@ -87,6 +69,28 @@
         </div>
 
     </div>
+
+
+    </div>
+
+    <!-- Game Over Page -->
+    <div class="hide" id="game-over">
+        <h1>
+            Game Over!
+        </h1>
+
+        <body>
+            <h2>Your Score</h2>
+            <text class="row">Correct Answers: <text class="correct" id="correct"> 0 </text></text>
+            <text class="row">Incorrect Answers: <text class="incorrect" id="incorrect"> 0 </text></text>
+            
+            <h4>Save your score with your initials here:</h4>
+            <input id="initials"> <input type="submit" value="Submit" id="score-submit">
+            <text id="all-scores"> </text>
+            <div id="new-scores" class="row"> <div class="score-board-user">user name</div> <div class="sb-c">correct</div> <div class="sb-i">incorrect</div>
+    </div>
+
+    
 </body>
 
 <script src="./script.js"></script>
