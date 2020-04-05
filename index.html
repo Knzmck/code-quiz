@@ -13,11 +13,7 @@
     <h1>Coding Quiz Challenge</h1>
     <!-- homepage -->
     <div id=homepage>
-        <p>Here are instructions for the quiz
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore, iste mollitia
-            nemo non quod laboriosam soluta ratione repudiandae autem delectus! Autem magni corrupti iusto sapiente id
-            cum,
-            aut consequuntur fuga?
+        <p>Answer these coding quiz challenge questions. Correct answers will add time and incorrect answers will take time away! Press Start Quiz to play. 
         </p>
 
         <button id="startbtn" class="btn btn-primary">Start Quiz</button>
@@ -54,24 +50,23 @@
 
             </div>
         </div>
+    
+
 
         <!-- score and timer -->
-    <div id="time-score-container" class="time-score-container">
+    <div id="time-score-container" class="time-score-container" class>
         <div class="row">
             <div>
                 <text class="col-md-6" id=>Time: <text class="time" id="time">
                     </text> </text>
-            </div>
-            <div class="col-md-6"> <text>Correct <text class="correct" id="correct"> 0 </text> </text>
-                <text>incorrect <text class="incorrect" id="incorrect"> 0 </text> </text>
             </div>
 
         </div>
 
     </div>
 
-
-    </div>
+</div>
+    
 
     <!-- Game Over Page -->
     <div class="hide" id="game-over">
@@ -80,17 +75,22 @@
         </h1>
 
         <body>
-            <h2>Your Score</h2>
-            <text class="row">Correct Answers: <text class="correct" id="correct"> 0 </text></text>
-            <text class="row">Incorrect Answers: <text class="incorrect" id="incorrect"> 0 </text></text>
+            <!-- <h2>Your Score</h2>
+            <text class="row">Correct Answers: <span class="correct" id="correct1"> 09 </span></text> -->
+            <!-- <text class="row">Incorrect Answers: <text class="incorrect" id="incorrect"> 99 </text></text> -->
             
-            <h4>Save your score with your initials here:</h4>
-            <input id="initials"> <input type="submit" value="Submit" id="score-submit">
+            <h4>Save your score:</h4>
+            <input class="form-control" type="text" placeholder="Type your initials here" id="initials"> 
+            <button type="button" class="btn btn-primary" id="save-btn">Save Score</button>
+            <button type="button" class="btn btn-primary" id="playagain-btn">Play again</button>
             <text id="all-scores"> </text>
-            <div id="new-scores" class="row"> <div class="score-board-user">user name</div> <div class="sb-c">correct</div> <div class="sb-i">incorrect</div>
+           
     </div>
 
-    
+    <div class="col-md-6"> <text>Correct: <text class="correct" id="correct"> 0 </text> </text>
+        <text>Incorrect: <text class="incorrect" id="incorrect"> 0 </text> </text>
+    </div>
+
 </body>
 
 <script src="./script.js"></script>

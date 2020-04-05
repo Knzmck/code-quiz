@@ -1,41 +1,52 @@
 var startButton = document.getElementById("startbtn");
 var questionEl = document.getElementById("question-text");
-var nextButton = document.getElementById("next-btn")
+var nextButton = document.getElementById("next-btn");
+var saveBtn = document.getElementById("save-btn");
+
 var answerBtnEl1 = document.getElementById("answer-button1");
 var answerBtnEl2 = document.getElementById("answer-button2");
 var answerBtnEl3 = document.getElementById("answer-button3");
 var answerBtnEl4 = document.getElementById("answer-button4");
+
 var homePage = document.getElementById("homepage");
 var questionContainer = document.getElementById("qcontainer");
 var timeScoreContainer = document.getElementById("time-score-container")
-var gameOverPage = document.getElementById("game-over")
+var gameOverPage = document.getElementById("game-over");
 var correctText = document.getElementById("correct");
 var incorrectText = document.getElementById("incorrect");
-var correct = 0;
-var incorrect = 0;
-var time = document.getElementById("time");
 
+var correct = 0;
+var incorrect = 0; 
+
+var time = document.getElementById("time");
+var gameTime = 60 * 1;
+var addTime = gameTime + 5;
 
 let randomQuestions
 var currentQuestionIndex = 0
 
+var initials = document.getElementById("initials");
 
+//event listeners for buttons
 startButton.addEventListener('click', startGame)
 answerBtnEl1.addEventListener('click', selectAnswer)
 answerBtnEl2.addEventListener('click', selectAnswer)
 answerBtnEl3.addEventListener('click', selectAnswer)
 answerBtnEl4.addEventListener('click', selectAnswer)
+saveBtn.addEventListener('click', saveScore)
+
+function saveScore ( ) {
+    // generate text at bottom of page 
+}
+
 
 function startGame() {
     homePage.classList.add('hide')
     questionContainer.classList.remove('hide')
     setQuestion()
-    
     display = document.getElementById("time");
     startTimer(gameTime, display);
-
-
-    // selects random question *** need to add ***
+    
 
 }
 
@@ -48,7 +59,6 @@ function setQuestion() {
 function displayQuestion() {
     //links question to question text
     questionEl.innerText = questions[currentQuestionIndex].question
-    console.log(currentQuestionIndex)
     //links respective answers to question buttons
     answerBtnEl1.innerText = questions[currentQuestionIndex].answers[0]
     answerBtnEl2.innerText = questions[currentQuestionIndex].answers[1]
@@ -59,6 +69,7 @@ function displayQuestion() {
 }
 
 function selectAnswer(event) {
+    event.preventDefault();
     if (currentQuestionIndex < questions.length) {
 
         if (event.target.innerText == questions[currentQuestionIndex].correct) {
@@ -66,47 +77,39 @@ function selectAnswer(event) {
             correctText.innerText = correct
             currentQuestionIndex++
             displayQuestion()
-            // addTime()
+            gameTime = gameTime + 5
+            
+            
+            
         }
         else {
             incorrect++
             incorrectText.innerText = incorrect
             currentQuestionIndex++
             displayQuestion()
-            // subtractTime()
+            gameTime = gameTime - 5
 
         }
         console.log(event.target.innerText)
     } else {
         questionContainer.classList.add('hide')
         gameOverPage.classList.remove('hide')
+        
     }
 
 }
 
-// total time of game variable
-var gameTime = 60 * 1;
-
-function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds;
-
+function startTimer() {
+    interval = setInterval(function() {
+        time.innerText = gameTime--;
         if (--timer < 0) {
             questionContainer.classList.add('hide')
             gameOverPage.classList.remove('hide')
         }
     }, 1000);
-    console.log(startTimer)
+    
 }
 
-//question array
 
 const questions = [
     {
@@ -144,27 +147,5 @@ const questions = [
 ]
 
 
-// saving score 
-// var user = {
-//     initials: initials.value.trim(),
-//     correct: correct.value.trim(),
-//     incorrect: incorrect.value.trim(),
-//   };
-
-// var submitBtn = getElementById("submit-button")
-// var initials = getElementById("initials")
-// submitBtn.addEventListener ("click", addScore)
-// function addScore(type, message) {
-//     if (initials === "") {
-//         alert("error", "You must enter your initials to save your score.")
-//     }
-//     else {
-//         var scoreSheet = getElementById("new-scores")
-//         scoreSheet.textContent = message;
-//     scoreSheet.setAttribute("class", type);
-
-//     }
-
-// }
 
 
