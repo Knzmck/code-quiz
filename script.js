@@ -25,7 +25,6 @@ var addTime = gameTime + 5;
 let randomQuestions
 var currentQuestionIndex = 0
 
-var initials = document.getElementById("initials");
 
 //event listeners for buttons
 startButton.addEventListener('click', startGame)
@@ -33,11 +32,9 @@ answerBtnEl1.addEventListener('click', selectAnswer)
 answerBtnEl2.addEventListener('click', selectAnswer)
 answerBtnEl3.addEventListener('click', selectAnswer)
 answerBtnEl4.addEventListener('click', selectAnswer)
-saveBtn.addEventListener('click', saveScore)
 
-function saveScore ( ) {
-    // generate text at bottom of page 
-}
+
+
 
 
 function startGame() {
@@ -145,7 +142,3 @@ const questions = [
     }
 
 ]
-
-
-
-
