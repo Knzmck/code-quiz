@@ -14,7 +14,7 @@ h1 {
     margin-top: 2%;
 }
 
-p {
+#homepage {
     padding-left: 15%;
     padding-right: 15%;
     padding-top: 50px;
@@ -38,16 +38,9 @@ body {
 .question-text {
     font-size: 25px;
 }
-
-
 .row { 
     padding: 2px;
 }
-
-#time-score-container {
-    margin-top: 5%;
-}
-
 text {
     font-size: 20px;
 }

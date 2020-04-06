@@ -17,9 +17,11 @@ Assets include a style.css page
 
 ## Future goals
 
--Add a way to store high scores. 
--Improve play again function.
+-Add a better way to store high scores using local storage properly. 
+-Improve the playAgain function.
 -Add more styling to pages.
+-Get rid of any code smell. 
+
 
 ## Created by
 
