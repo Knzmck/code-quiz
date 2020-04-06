@@ -13,7 +13,8 @@
     <h1>Coding Quiz Challenge</h1>
     <!-- homepage -->
     <div id=homepage>
-        <p>Answer these coding quiz challenge questions. Correct answers will add time and incorrect answers will take time away! Press Start Quiz to play. 
+        <p>Answer these coding quiz challenge questions. Correct answers will add time and incorrect answers will take
+            time away! Press Start Quiz to play.
         </p>
 
         <button id="startbtn" class="btn btn-primary">Start Quiz</button>
@@ -50,43 +51,46 @@
 
             </div>
         </div>
-    
+
 
 
         <!-- score and timer -->
-    <div id="time-score-container" class="time-score-container" class>
-        <div class="row">
-            <div>
-                <text class="col-md-6" id=>Time: <text class="time" id="time">
-                    </text> </text>
+        <div id="time-score-container" class="time-score-container" class>
+            <div class="row">
+                <div>
+                    <text class="col-md-6" id=>Time: <text class="time" id="time">
+                        </text> </text>
+                </div>
+
             </div>
 
         </div>
 
     </div>
 
-</div>
-    
 
     <!-- Game Over Page -->
     <div class="hide" id="game-over">
         <h1>
             Game Over!
         </h1>
+        <div id="highScores" class="flex-center flex-column">
+            <h2 class="text-center">All Scores</h2>
+            <ul id="score-list"> </ul>
+        </div>
 
-        <body>
-            
-            <h4>Save your score:</h4>
-            <input class="form-control" type="text" name="initials" placeholder="Type your initials here" id="initials"> 
-            <button type="button" class="btn btn-primary" id="save-btn">Save Score</button>
-            <button type="button" class="btn btn-primary" id="playagain-btn">Play again</button>
-            <text id="all-scores"> </text>
-           
+
+        <h4>Save your score:</h4>
+        <input class="form-control" type="text" name="initials" placeholder="Type your initials here" id="initials">
+        <button type="button" class="btn btn-primary" id="save-btn">Save Score</button>
+        <button type="button" class="btn btn-primary" id="playagain-btn">Play again</button>
+
     </div>
-
+    <h4> My Score </h4>
     <div class="col-md-6"> <text>Correct: <text class="correct" id="correct"> 0 </text> </text>
         <text>Incorrect: <text class="incorrect" id="incorrect"> 0 </text> </text>
     </div>
+
 
 </body>
 

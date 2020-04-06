@@ -15,6 +15,7 @@ var gameOverPage = document.getElementById("game-over");
 var correctText = document.getElementById("correct");
 var incorrectText = document.getElementById("incorrect");
 var playagainbtn = document.getElementById("playagain-btn");
+var initials = document.getElementById("initials");
 
 var correct = 0;
 var incorrect = 0; 
@@ -32,11 +33,18 @@ answerBtnEl1.addEventListener('click', selectAnswer)
 answerBtnEl2.addEventListener('click', selectAnswer)
 answerBtnEl3.addEventListener('click', selectAnswer)
 answerBtnEl4.addEventListener('click', selectAnswer)
-playagainbtn.addEventListener('click', playagain)
+playagainbtn.addEventListener('click', playAgain)
 
 
-function playagain() {
+
+function playAgain(e) {
+    e.preventDefault
     location.reload();
+    // correct = 0;
+    // incorrect = 0;
+    // gameOverPage.classList.add('hide')
+    // homePage.classList.remove('hide')
+    // currentQuestionIndex = 0
 }
 
 
@@ -70,7 +78,7 @@ function displayQuestion() {
 
 function selectAnswer(event) {
     event.preventDefault();
-    if (currentQuestionIndex < questions.length) {
+    if (currentQuestionIndex < questions.length-1) {
 
         if (event.target.innerText == questions[currentQuestionIndex].correct) {
             correct++
@@ -191,3 +199,47 @@ const questions = [
 
 
 ]
+
+//function to save scores
+
+var saveBtn = document.getElementById("save-btn");
+
+saveBtn.addEventListener('click', saveHighScore)
+const mostRecentScore = localStorage.getItem("mostRecentScore")
+const highScores = JSON.parse(localStorage.getItem("highscores")) || [];
+
+
+
+initials.addEventListener("keyup", () => {
+    saveBtn.disabled = !initials.value;
+});
+
+function saveHighScore(e) {
+    e.preventDefault();
+
+    const score = {
+        score: correct,
+        name: initials.value
+    };
+    highScores.push(score);
+
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    console.log(highScores);
+    displayScore();
+}
+
+function displayScore() {
+    // var scoreList =getElementById("all-scores")
+    var scoreList = localStorage.getItem("highScores", JSON.parse(highScores))
+    for (var i = 0; i < highScores.length; i++) {
+        var highScores = highScores[i]
+
+        var li = document.createElement('li')
+        li.textContent = highScores;
+        scoreList.appendChild(li);
+        
+    }
+
+}
+
+
