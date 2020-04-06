@@ -14,13 +14,13 @@ var timeScoreContainer = document.getElementById("time-score-container")
 var gameOverPage = document.getElementById("game-over");
 var correctText = document.getElementById("correct");
 var incorrectText = document.getElementById("incorrect");
+var playagainbtn = document.getElementById("playagain-btn");
 
 var correct = 0;
 var incorrect = 0; 
 
 var time = document.getElementById("time");
-var gameTime = 60 * 1;
-var addTime = gameTime + 5;
+var gameTime = 30;
 
 let randomQuestions
 var currentQuestionIndex = 0
@@ -32,9 +32,12 @@ answerBtnEl1.addEventListener('click', selectAnswer)
 answerBtnEl2.addEventListener('click', selectAnswer)
 answerBtnEl3.addEventListener('click', selectAnswer)
 answerBtnEl4.addEventListener('click', selectAnswer)
+playagainbtn.addEventListener('click', playagain)
 
 
-
+function playagain() {
+    location.reload();
+}
 
 
 function startGame() {
@@ -74,7 +77,7 @@ function selectAnswer(event) {
             correctText.innerText = correct
             currentQuestionIndex++
             displayQuestion()
-            gameTime = gameTime + 5
+            gameTime = gameTime + 3
             
             
             
@@ -84,7 +87,7 @@ function selectAnswer(event) {
             incorrectText.innerText = incorrect
             currentQuestionIndex++
             displayQuestion()
-            gameTime = gameTime - 5
+            gameTime = gameTime - 3
 
         }
         console.log(event.target.innerText)
@@ -99,7 +102,7 @@ function selectAnswer(event) {
 function startTimer() {
     interval = setInterval(function() {
         time.innerText = gameTime--;
-        if (--timer < 0) {
+        if (--gameTime < 0) {
             questionContainer.classList.add('hide')
             gameOverPage.classList.remove('hide')
         }
@@ -139,6 +142,52 @@ const questions = [
         question: 'Which number will call on the first object in an Array?',
         answers: ['-1', '0', '1', 'Arrays do not hold objects'],
         correct: '0'
+    },
+    {
+        question: 'How do you insert a break line in HTML?',
+        answers: ['Press the return key', 'use the <kb> tag', 'Use the <break> tag', 'Use the <br> tag'],
+        correct: 'Use the <br> tag'
+    },
+    {
+        question: 'Which HTML tags will creat a bullet point list?',
+        answers: ['<ul><ul>', '<li><li>', '<list><list>', '<bl><bl>'],
+        correct: '<ul><ul>'
+    },
+    {
+        question: 'Who invented the World Wide Web?',
+        answers: ['Steve Jobs', 'Tim Berners-Lee', 'Bill Gates', 'Douglas Engelbart'],
+        correct: 'Tim Berners-Lee'
+    },
+    {
+        question: 'Which of the following is NOT a programming language?',
+        answers: ['HTML', 'Javascript', 'C++', 'Word'],
+        correct: 'Word'
+    },
+    {
+        question: 'What symbol differentiates most opening tags from closing tags?',
+        answers: ['/', '<', '#', '*'],
+        correct: '/'
+    },
+    {
+        question: 'How long did it take Brendan Eich to create Javascript?',
+        answers: ['2 years', '10 days', '529,600 minutes', '1 year'],
+        correct: '10 days'
+    },
+    {
+        question: 'Which language is most similar to javascript?',
+        answers: ['HTML', 'Javascript 2', 'Java', 'None of the above'],
+        correct: 'None of the above'
+    },
+    {
+        question: 'Which symbol is used to call a function in JQuery?',
+        answers: ['$', '!', '~', 'JQuery cannot create functions'],
+        correct: '$'
+    },
+    {
+        question: 'How would you use call an ID tag in JQuery?',
+        answers: ['getElementById("idtag")', '"$#idtag"', 'id=idtag', '("#idtag")'],
+        correct: '("#idtag")'
     }
+
 
 ]
