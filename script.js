@@ -225,21 +225,34 @@ function saveHighScore(e) {
 
     localStorage.setItem("highScores", JSON.stringify(highScores));
     console.log(highScores);
-    displayScore();
+    alert("Great Job,  " + score.name + "!   Your score is   " + score.score)
+
+    
 }
 
-function displayScore() {
-    // var scoreList =getElementById("all-scores")
-    var scoreList = localStorage.getItem("highScores", JSON.parse(highScores))
-    for (var i = 0; i < highScores.length; i++) {
-        var highScores = highScores[i]
 
-        var li = document.createElement('li')
-        li.textContent = highScores;
-        scoreList.appendChild(li);
+  
+    
+    // // var scoreList = localStorage.getItem("highScores", JSON.parse(highScores))
+    // for (var i = 0; i < highScores.length; i++) {
+    //     var highScores = highScores[i]
+
+    //     var li = document.createElement('li')
+    //     li.textContent = scoreDisplay;
+    //     scoreList.appendChild(li);
         
-    }
+    // }
 
-}
+    // for (var i = 0; i < highScores.length; i++) {
+    
+    // }
+    // scoreDisplay = JSON.parse(highScores);
+    //   var scoreList = getElementById("all-scores");
+    // var item = document.createElement("ul")
+    //   ul.innerHTML = (highScores[i].name, highScores.score[i]);
+    //   scoreList.appendChild(item)
+    
+
+
 
 
